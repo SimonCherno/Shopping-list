@@ -1,0 +1,21 @@
+.table-wrapper {
+  overflow-x: auto;
+}
+.table {
+  height: 400px;
+  width: 100%;
+  outline: none;
+}
+.no-rows-text {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  height: 100%;
+}
+@media screen and (max-width: 465px) {
+  .no-rows-text {
+    justify-content: flex-start;
+    margin-left: 0.5rem;
+  }
+}

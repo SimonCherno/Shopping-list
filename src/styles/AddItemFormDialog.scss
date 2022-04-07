@@ -1,0 +1,47 @@
+.form {
+  margin-top: 1rem;
+}
+.form-buttom {
+  display: flex;
+}
+.form-buttom-right {
+  margin-top: 8px;
+}
+.form-input {
+  width: 200px;
+  margin: 0.5rem;
+}
+.date-picker {
+  margin-top: 12px;
+  height: 100px;
+}
+.form-autocomplete {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+@media screen and (max-width: 550px) {
+  .form-input {
+    width: 150px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .form-input {
+    width: 120px;
+  }
+}
+/* Remove arrows from input type number */
+/* Chrome, Safari, Edge, Opera */
+input {
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
