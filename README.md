@@ -1,5 +1,9 @@
 # Shopping List App
 
+## Live URL
+
+https://shopping-list-v2-simon.herokuapp.com/
+
 ## Main Goals
 
 1. Create from scratch a reactive (can perform actions) and responsive (fit for mobile/tablet) website.
