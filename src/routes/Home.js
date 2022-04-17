@@ -95,7 +95,7 @@ const Home = () => {
                     <div className="icons">
                         <IconButton 
                             sx={{ml: 2}}
-                            style={{color: 'green'}}
+                            style={{color: '#5cff9a'}}
                             onClick={(e) => {
                                 setIsEditing(true);
                                 setItemData(params.row)
@@ -105,7 +105,7 @@ const Home = () => {
                             <EditIcon />
                         </IconButton>
                         <IconButton 
-                            style={{color: 'red'}}
+                            style={{color: '#ff5c5c'}}
                             onClick={(e) => {
                                 dispatch(deleteItem(items, params.row.id));
                                 e.stopPropagation();
@@ -147,4 +147,4 @@ const Home = () => {
     )
 }
 
-export default WithNavbarAndLoading(Home, 'home');
+export default WithNavbarAndLoading(Home, 0);

@@ -69,4 +69,4 @@ const Stores = () => {
   </div>
 }
 
-export default WithNavbarAndLoading(Stores, 'stores');
+export default WithNavbarAndLoading(Stores, 1);

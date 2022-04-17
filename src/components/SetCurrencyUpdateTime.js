@@ -10,14 +10,12 @@ import CachedIcon from '@mui/icons-material/Cached';
 import { setFetchTime } from '../services/store/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { IconButton } from '@mui/material';
-import UseMediaQueryHook from '../services/Hooks/UseMediaQueryHook';
 
 const SetCurrencyUpdateTime = () => {
   const { fetchTime } = useSelector(state => state);
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(fetchTime);
-  const {responsiveIcons} = UseMediaQueryHook();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -36,12 +34,12 @@ const SetCurrencyUpdateTime = () => {
   return (
     <div>
         <IconButton 
-            color='inherit'
+            sx={{
+              color: 'text.secondary'
+            }}
             onClick = {handleClickOpen}
         >
-            <CachedIcon
-              style={responsiveIcons}
-            />
+          <CachedIcon />
         </IconButton>
         <Dialog open={open} onClose={handleClose}>
             <DialogTitle>Set Currency Update Time</DialogTitle>

@@ -31,8 +31,74 @@
 .right-corner {
   display: flex;
 }
+.sidebar-footer {
+  display: flex;
+}
 .clear-all-wrapper{
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
+.aside-btn{
+  display: none;
+}
+.navigation-btns-wrapper{
+  margin-top: 9px;
+}
+.logo {
+  max-height: 70px;
+  transition: all 0.3s linear;
+}
+@media screen and (max-width: '600px'){
+  .navigation-btns-wrapper{
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+  .right-corner{
+    display: none;
+  }
+  .aside-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .logo{
+    max-height: 60px;
+  }
+}
+.icon{
+  padding: 15px;
+}
+.logo {
+  animation-duration: 0.3s;
+  animation-name: tilt;
+}
+
+@keyframes tilt {
+  from {
+    transform: rotate(0) scale(1);
+  }
+  50% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  
+  to {
+    transform: rotate(0) scale(1);
+  }
+}
+.navbar-animation{
+  animation: navbarAnimation 0.2s ease-out;
+}
+@keyframes navbarAnimation {
+  from {
+    transform: translateY(-100%)
+  }  
+  80% {
+    transform: translateY(20px)
+  }
+  to {
+    transform: translateY(0)
+  }
+}
+

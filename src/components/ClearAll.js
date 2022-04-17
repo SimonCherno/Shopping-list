@@ -29,7 +29,6 @@ const ClearAll = () => {
     dispatch(deleteAllItems())
     setToastMessage ({message: 'All items deleted', severity: 'success'})
   };
-
   return (
     <div>
       <Toast 
@@ -39,7 +38,7 @@ const ClearAll = () => {
       />
       <Button 
         variant="contained" 
-        color='error'
+        color='secondary'
         onClick={handleClickOpen}
       >
         clear all items
