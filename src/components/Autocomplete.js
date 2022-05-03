@@ -4,11 +4,11 @@ import Autocomplete from '@mui/material/Autocomplete';
 import CircularProgress from '@mui/material/CircularProgress';
 
 const AutoComplete = ({
+  item,
   setItem, 
   setItemWithPrice, 
   setToastMessage, 
-  setIsSnackbarOpen,
-  item
+  setIsSnackbarOpen
 }) => {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState([]);
@@ -52,12 +52,12 @@ const AutoComplete = ({
 
   return (
     <Autocomplete
-        onChange={(event, newValue) => {
-            setItemWithPrice(newValue);
-        }}
-        onInputChange={(event, newInputValue) => {
-            setItem(newInputValue);
-        }}      
+      onChange={(event, newValue) => {
+          setItemWithPrice(newValue);
+      }}
+      onInputChange={(event, newInputValue) => {
+          setItem(newInputValue);
+      }}      
       open={open}
       onOpen={() => {
         setOpen(true);
@@ -73,8 +73,8 @@ const AutoComplete = ({
       inputValue={item}
       renderInput={(params) => (
         <TextField
-          variant="standard"
           {...params}
+          variant="standard"
           label="Items"
           InputProps={{
             ...params.InputProps,

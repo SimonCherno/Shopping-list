@@ -1,6 +1,6 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react';
 
-const currencyUrl = 'https://v6.exchangerate-api.com/v6/fdc0cc3b44368d5084b69401/latest/USD'
+const currencyUrl = 'https://v6.exchangerate-api.com/v6/fdc0cc3b44368d5084b69401/latest/USD';
 
 const UseFetch = (fetchTime) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -12,10 +12,10 @@ const UseFetch = (fetchTime) => {
     useEffect(() => {
         fetchData(currencyUrl);
         const interval = setInterval(() => {
-            fetchData(`${currencyUrl}`);
+            fetchData(currencyUrl);
         }, seconds);
         return () => {
-            clearInterval(interval)
+            clearInterval(interval);
         }; 
     }, [seconds]);
 

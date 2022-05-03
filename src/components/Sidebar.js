@@ -4,7 +4,6 @@ import { Box } from '@mui/system'
 import UseMediaQueryHook from '../services/Hooks/UseMediaQueryHook'
 import logo from '../assets/logo.png'
 import { FaTimes } from 'react-icons/fa'
-
 import NavigationBtns from './NavigationBtns'
 
 const Sidebar = ({openSidebar, setOpenSidebar, children, mode}) => {
@@ -16,7 +15,7 @@ const Sidebar = ({openSidebar, setOpenSidebar, children, mode}) => {
         // eslint-disable-next-line
     }, [isSmallScreen]);
     return (
-        <div className={`sidebar-wrapper ${openSidebar && 'show-sidebar'}`}>
+        <div className={`sidebar-wrapper ${openSidebar ? 'show-sidebar' : ''}`}>
             <Box
                 sx={{
                     bgcolor: 'background.default', 

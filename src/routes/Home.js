@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './../styles/Home.scss'
 import DataTable from '../components/DataTable';
-import AddItemFormDialog from '../components/AddItemFormDialog';
+import FormDialog from '../components/FormDialog';
 import WithNavbarAndLoading from '../layout/WithNavbarAndLoading'
 import { useDispatch, useSelector } from 'react-redux';
 import { formatPrice } from '../services/utils/utils';
@@ -38,7 +38,7 @@ const Home = () => {
         }
         // eslint-disable-next-line
     }, []);
-
+    
     useEffect(() => {
         localStorage.setItem('localStorageData',JSON.stringify({items}));
         // eslint-disable-next-line
@@ -67,7 +67,7 @@ const Home = () => {
             align: 'center',
             headerAlign: 'center',
             renderCell: (params) => {
-            return <span>{moment(params.row.deliveryDate).format('DD/MM/yyyy')}</span>;
+                return <span>{moment(params.row.deliveryDate).format('DD/MM/yyyy')}</span>;
             }
         },
         {
@@ -78,17 +78,16 @@ const Home = () => {
             align: 'center',
             headerAlign: 'center',
             renderCell: (params) => {
-                const onClick = (e) => {
-                    dispatch(toggleDelivery(items, params.row.id));
-                    e.stopPropagation();
-                }
                 return <div style={{width:'90%', display: 'flex', justifyContent:'space-between'}}>
                     <Button 
                         className={classes.button}
                         size="small"
                         sx={{fontSize: 12}} 
                         variant='outlined' 
-                        onClick={onClick}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            dispatch(toggleDelivery(items, params.row.id));
+                        }}
                     >
                         {tab === 'delivery' ? 'Arrived' : 'In delivery'}
                     </Button>
@@ -97,9 +96,9 @@ const Home = () => {
                             sx={{ml: 2}}
                             style={{color: '#5cff9a'}}
                             onClick={(e) => {
+                                e.stopPropagation();
                                 setIsEditing(true);
                                 setItemData(params.row)
-                                e.stopPropagation();
                             }}
                         >
                             <EditIcon />
@@ -107,8 +106,8 @@ const Home = () => {
                         <IconButton 
                             style={{color: '#ff5c5c'}}
                             onClick={(e) => {
-                                dispatch(deleteItem(items, params.row.id));
                                 e.stopPropagation();
+                                dispatch(deleteItem(items, params.row.id));
                             }}
                         >
                             <DeleteIcon />
@@ -133,7 +132,13 @@ const Home = () => {
                 >Arrived items</Button>
             </div>
             <div className="add-item">
-                <AddItemFormDialog isEditing={isEditing} setIsEditing={setIsEditing} itemData={itemData} tab={tab} items={items} />
+                <FormDialog 
+                    isEditing={isEditing} 
+                    setIsEditing={setIsEditing} 
+                    itemData={itemData} 
+                    tab={tab} 
+                    items={items} 
+                />
             </div>
         </nav>
         <div className="table-wrapper">
@@ -147,4 +152,4 @@ const Home = () => {
     )
 }
 
-export default WithNavbarAndLoading(Home, 0);
+export default WithNavbarAndLoading(Home);

@@ -32,7 +32,7 @@ const DataTable = ({rows, columns, sortModel=null}) => {
         rows={rows}
         initialState={{
           sorting: {
-            sortModel: sortModel
+            sortModel
           },
         }}
         columns={columns}

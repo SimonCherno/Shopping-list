@@ -21,7 +21,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 import * as moment from 'moment';
 
-const AddItemFormDialog = ({ isEditing, setIsEditing, itemData, tab, items }) => {
+const FormDialog = ({ isEditing, setIsEditing, itemData, tab, items }) => {
   const {currency: defaultCurrency, rate} = useSelector(state => state);
   const dispatch = useDispatch();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -43,11 +43,11 @@ const AddItemFormDialog = ({ isEditing, setIsEditing, itemData, tab, items }) =>
       setIsDialogOpen (true);
       setItem(item);
       setStore(store);
-      setPrice(price);
+      setPrice(currency === 'USD' ? price : (price * rate).toFixed(2));
       setDate(deliveryDate);
     }
     // eslint-disable-next-line
-  }, [isEditing])
+  }, [isEditing]);
 
   useEffect(() => {
     setCurrency(defaultCurrency);
@@ -161,7 +161,8 @@ const AddItemFormDialog = ({ isEditing, setIsEditing, itemData, tab, items }) =>
                     onChange={(e) => setPrice(e.target.value)}
                     InputProps={{
                       inputProps: { 
-                        min: 0 
+                        min: 0,
+                        step: ".01"
                       }
                     }}
                   />
@@ -213,4 +214,4 @@ const AddItemFormDialog = ({ isEditing, setIsEditing, itemData, tab, items }) =>
     </div>
   );
 }
-export default AddItemFormDialog;
+export default FormDialog;

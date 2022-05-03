@@ -9,7 +9,7 @@ import Toast from './Toast';
 import { useDispatch } from 'react-redux';
 import { deleteAllItems } from '../services/store/actions';
 
-const ClearAll = () => {
+const ClearAllDialog = () => {
   const [open, setOpen] = React.useState(false);
   const [isSnackbarOpen, setIsSnackbarOpen] = React.useState(false);
   const [toastMessage, setToastMessage] = React.useState({});
@@ -23,12 +23,13 @@ const ClearAll = () => {
     setOpen(false);
     setIsSnackbarOpen(true);
     if (type === 'cancel'){
-        setToastMessage ({message: 'Items not deleted', severity: 'warning'})
+        setToastMessage ({message: 'Items not deleted', severity: 'warning'});
         return
     }
-    dispatch(deleteAllItems())
-    setToastMessage ({message: 'All items deleted', severity: 'success'})
+    dispatch(deleteAllItems());
+    setToastMessage ({message: 'All items deleted', severity: 'success'});
   };
+  
   return (
     <div>
       <Toast 
@@ -68,4 +69,4 @@ const ClearAll = () => {
   );
 }
 
-export default ClearAll;
+export default ClearAllDialog;

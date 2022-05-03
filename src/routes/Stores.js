@@ -9,8 +9,8 @@ import { addStorageToState } from '../services/store/actions';
 import { Box } from '@mui/material';
 
 const createTableData = (items) => {
-  let {storeList, totalPrice} = items.reduce((totals, curr, i) => {
-    let {storeList, totalPrice} = totals;
+  let {storeList, totalPrice} = items.reduce((accumulators, curr, i) => {
+    let {storeList, totalPrice} = accumulators;
     let index = storeList.findIndex(item => item.store === curr.store);
     if (index !== -1) {
       storeList[index] = {
@@ -34,7 +34,7 @@ const createTableData = (items) => {
 
 const Stores = () => {
   const {items, rate, currency} = useSelector(state => state);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
     let localStorageData = getLocalStorage();
     if (localStorageData.items) {
@@ -69,4 +69,4 @@ const Stores = () => {
   </div>
 }
 
-export default WithNavbarAndLoading(Stores, 1);
+export default WithNavbarAndLoading(Stores);

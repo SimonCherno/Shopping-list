@@ -11,7 +11,7 @@ export const getLocalStorage = () => {
   if (data){
     return JSON.parse(data);
   } else {
-    return {};
+      return {}
   }
 }
 

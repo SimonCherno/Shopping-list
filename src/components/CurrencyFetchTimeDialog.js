@@ -11,7 +11,7 @@ import { setFetchTime } from '../services/store/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { IconButton } from '@mui/material';
 
-const SetCurrencyUpdateTime = () => {
+const CurrencyFetchTimeDialog = () => {
   const { fetchTime } = useSelector(state => state);
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
@@ -27,23 +27,23 @@ const SetCurrencyUpdateTime = () => {
   };
 
   const handleSet = () => {
-        dispatch(setFetchTime(Number(value)));
-        setOpen(false);
+    dispatch(setFetchTime(Number(value)));
+    setOpen(false);
   }
 
   return (
     <div>
-        <IconButton 
-            sx={{
-              color: 'text.secondary'
-            }}
-            onClick = {handleClickOpen}
-        >
-          <CachedIcon />
-        </IconButton>
-        <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Set Currency Update Time</DialogTitle>
-            <DialogContent>
+      <IconButton 
+        sx={{
+          color: 'text.secondary'
+        }}
+        onClick = {handleClickOpen}
+      >
+        <CachedIcon />
+      </IconButton>
+      <Dialog open={open} onClose={handleClose}>
+          <DialogTitle>Set Currency Update Time</DialogTitle>
+          <DialogContent>
             <DialogContentText>
                 Plese Set currency update time in seconds
             </DialogContentText>
@@ -56,14 +56,14 @@ const SetCurrencyUpdateTime = () => {
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
             />
-            </DialogContent>
-            <DialogActions>
+          </DialogContent>
+          <DialogActions>
             <Button onClick={handleClose}>Cancel</Button>
             <Button onClick={handleSet}>Set</Button>
-            </DialogActions>
-        </Dialog>
+          </DialogActions>
+      </Dialog>
     </div>
   );
 }
 
-export default SetCurrencyUpdateTime
+export default CurrencyFetchTimeDialog;

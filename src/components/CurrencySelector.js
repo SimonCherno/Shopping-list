@@ -8,7 +8,7 @@ import ils from '../assets/ils.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrency } from '../services/store/actions';
 
-export default function CurrencySelect() {
+export default function CurrencySelector() {
   const { currency } = useSelector(state => state);
   const dispatch = useDispatch();
   return (

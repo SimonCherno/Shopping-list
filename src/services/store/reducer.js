@@ -17,8 +17,8 @@ export const reducer = (state=initalState, action ={}) => {
     switch (action.type) {
         case TOGGLE_DELIVERY:
             return {
-            ...state, 
-            items: action.payload
+                ...state, 
+                items: action.payload
             }    
         case ADD_TO_DELIVERY:
             return {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import UseFetch from '../services/Hooks/UseCurrencyFetch'
+import UseCurrencyFetch from '../services/Hooks/UseCurrencyFetch'
 import { useDispatch, useSelector } from 'react-redux';
 import Toast from './Toast';
 import { setIsStartError, updateRate } from '../services/store/actions';
@@ -12,7 +12,7 @@ const Currency = () => {
     const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
     const [toastMessage, setToastMessage] = useState({});
     
-    const {isLoading, isError, newRate} = UseFetch(fetchTime);
+    const {isLoading, isError, newRate} = UseCurrencyFetch(fetchTime);
       
     useEffect (() => {
         if (!isLoading && !isError && newRate){
